@@ -8,6 +8,7 @@ const roleTabs = document.querySelectorAll('.role-tab');
 const rolePanels = document.querySelectorAll('.role-panel');
 const placeholders = document.querySelectorAll('.image-placeholder');
 
+
 function closeMenu() {
   navToggle.classList.remove('open');
   navToggle.setAttribute('aria-expanded', 'false');
@@ -86,3 +87,34 @@ window.addEventListener('scroll', () => {
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+const monitorCards = document.querySelectorAll(".monitor-card[data-monitor]");
+const monitoringPreview = document.querySelector(".monitoring-preview");
+
+if (monitorCards.length && monitoringPreview) {
+  monitorCards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      const target = card.dataset.monitor;
+      monitoringPreview.dataset.active = target;
+
+      monitorCards.forEach((item) => item.classList.remove("is-active"));
+      card.classList.add("is-active");
+    });
+
+    card.addEventListener("mouseleave", () => {
+      monitoringPreview.removeAttribute("data-active");
+      card.classList.remove("is-active");
+    });
+
+    card.addEventListener("focusin", () => {
+      const target = card.dataset.monitor;
+      monitoringPreview.dataset.active = target;
+      card.classList.add("is-active");
+    });
+
+    card.addEventListener("focusout", () => {
+      monitoringPreview.removeAttribute("data-active");
+      card.classList.remove("is-active");
+    });
+  });
+}

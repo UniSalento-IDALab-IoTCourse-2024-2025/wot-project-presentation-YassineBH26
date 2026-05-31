@@ -13,12 +13,8 @@
 <body>
   <header class="site-header" id="top">
     <nav class="navbar" aria-label="Main navigation">
-      <a href="#top" class="brand" aria-label="Raqeb Food home">
-        <span class="brand-mark">RF</span>
-        <span class="brand-text">
-          <strong>Raqeb Food</strong>
-          <small>راقب فود</small>
-        </span>
+      <a href="#top" class="brand brand-logo" aria-label="Raqeb Food home">
+        <img src="assets/logo-horizontal.png" alt="Raqeb Food logo" />
       </a>
 
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -197,41 +193,18 @@
           <p class="eyebrow">System Architecture</p>
           <h2>A full-stack IoT prototype built around the delivery lifecycle</h2>
           <p>
-            The system connects a React dashboard, a Flask API running on Raspberry Pi, SQLite storage, physical
-            sensors, phone GPS and an AI module for recommendation.
+            The following diagram presents the overall architecture of Raqeb Food, showing how the React dashboard,
+            Flask backend, Raspberry Pi, SQLite database, IoT sensors, phone GPS and AI recommendation module interact.
           </p>
         </div>
 
-        <div class="architecture-layout reveal">
-          <div class="architecture-diagram" role="img"
-            aria-label="Architecture diagram showing React dashboard, Flask backend, SQLite database, sensors, GPS and AI module">
-            <div class="arch-node frontend">React Dashboard<br><small>Admin · School · Driver</small></div>
-            <div class="arch-arrow">↔</div>
-            <div class="arch-node backend">Flask Backend<br><small>Raspberry Pi 5</small></div>
-            <div class="arch-branches">
-              <div class="arch-node database">SQLite<br><small>requests · deliveries · records</small></div>
-              <div class="arch-node sensor">DHT11<br><small>temperature · humidity</small></div>
-              <div class="arch-node sensor">KY-017 Tilt Switch<br><small>box instability</small></div>
-              <div class="arch-node gps-node">Phone GPS<br><small>browser geolocation</small></div>
-              <div class="arch-node ai-node">AI Module<br><small>risk · score · ranking</small></div>
+        <div class="architecture-showcase reveal">
+          <div class="image-placeholder architecture-image" data-image="assets/architecture.png">
+            <img src="assets/architecture.png" alt="Raqeb Food system architecture diagram" />
+            <div>
+              <span>Architecture Diagram</span>
+              <small>assets/architecture.png</small>
             </div>
-          </div>
-
-          <div class="architecture-summary-card">
-            <p class="panel-kicker">System logic</p>
-            <h3>How the prototype works</h3>
-            <p>
-              The React dashboard communicates with the Flask backend running on the Raspberry Pi. The backend receives
-              sensor data, receives phone GPS coordinates, stores meaningful monitoring records in SQLite, and uses the
-              AI module to support driver assignment.
-            </p>
-            <ul class="check-list">
-              <li>React handles Admin, School and Driver interfaces</li>
-              <li>Flask exposes REST APIs and monitoring logic</li>
-              <li>DHT11, KY-017 and phone GPS provide delivery data</li>
-              <li>SQLite stores requests, deliveries and reports</li>
-              <li>AI ranks drivers by delivery-condition risk</li>
-            </ul>
           </div>
         </div>
       </div>
@@ -243,8 +216,8 @@
           <p class="eyebrow">Role-based Dashboards</p>
           <h2>Three interfaces, one connected workflow</h2>
           <p>
-            Each user role has a focused dashboard: the school creates requests, the administrator assigns and monitors
-            deliveries, and the driver executes the delivery from the phone.
+            Each user role has a focused dashboard. The administrator manages requests and users, the school creates and
+            tracks delivery requests, and the driver executes the delivery from the phone.
           </p>
         </div>
 
@@ -258,41 +231,122 @@
           <article class="role-panel active" id="admin-panel">
             <div class="role-copy">
               <p class="panel-kicker">Admin Dashboard</p>
-              <h3>Control center for requests and active deliveries</h3>
+              <h3>Control center for operations and platform users</h3>
               <ul class="check-list">
                 <li>Manage school delivery requests</li>
                 <li>Assign available drivers</li>
                 <li>Use AI recommendation and view reasons</li>
-                <li>Monitor active deliveries and live conditions</li>
+                <li>Create and manage school and driver accounts</li>
               </ul>
             </div>
-            <div class="image-placeholder" data-image="assets/admin-dashboard.png">
-              <img src="assets/admin-dashboard.png" alt="Admin dashboard screenshot" />
-              <div><span>Admin Dashboard Screenshot</span><small>assets/admin-dashboard.png</small></div>
+
+            <div class="module-showcase">
+              <div class="module-tabs" role="tablist" aria-label="Admin dashboard modules">
+                <input type="radio" name="admin-module" id="admin-control" checked />
+                <label for="admin-control">Control Center</label>
+
+                <input type="radio" name="admin-module" id="admin-users" />
+                <label for="admin-users">User Management</label>
+
+                <div class="module-panels">
+                  <section class="module-panel module-control">
+                    <div class="module-copy">
+                      <span class="module-label">Operations</span>
+                      <h4>Request assignment and AI-assisted recommendation</h4>
+                      <p>
+                        The admin control center allows the administrator to review school requests, compare available
+                        drivers, display AI recommendation reasons, assign a driver, and access delivery reports.
+                      </p>
+                    </div>
+
+                    <div class="image-placeholder dashboard-screenshot" data-image="assets/admin-dashboard.png">
+                      <img src="assets/admin-dashboard.png" alt="Admin control center with AI recommendation" />
+                      <div><span>Admin Control Center Screenshot</span><small>assets/admin-dashboard.png</small></div>
+                    </div>
+                  </section>
+
+                  <section class="module-panel module-users">
+                    <div class="module-copy">
+                      <span class="module-label">Access control</span>
+                      <h4>User and role management</h4>
+                      <p>
+                        The user management page lets the administrator create accounts for drivers and schools, view
+                        registered users, and keep the role-based access structure organized.
+                      </p>
+                    </div>
+
+                    <div class="image-placeholder dashboard-screenshot" data-image="assets/admin-users.png">
+                      <img src="assets/admin-users.png" alt="Admin user management dashboard" />
+                      <div><span>Admin User Management Screenshot</span><small>assets/admin-users.png</small></div>
+                    </div>
+                  </section>
+                </div>
+              </div>
             </div>
           </article>
 
           <article class="role-panel" id="school-panel">
             <div class="role-copy">
               <p class="panel-kicker">School Dashboard</p>
-              <h3>A simple request interface for school meal delivery</h3>
+              <h3>Request creation and status tracking for schools</h3>
               <ul class="check-list">
                 <li>Create delivery requests</li>
                 <li>Select food items and quantities</li>
                 <li>Add requested delivery time and notes</li>
-                <li>View request status updates</li>
+                <li>Track submitted request statuses</li>
               </ul>
             </div>
-            <div class="image-placeholder" data-image="assets/school-dashboard.png">
-              <img src="assets/school-dashboard.png" alt="School dashboard screenshot" />
-              <div><span>School Dashboard Screenshot</span><small>assets/school-dashboard.png</small></div>
+
+            <div class="module-showcase">
+              <div class="module-tabs" role="tablist" aria-label="School dashboard modules">
+                <input type="radio" name="school-module" id="school-create" checked />
+                <label for="school-create">Create Request</label>
+
+                <input type="radio" name="school-module" id="school-requests" />
+                <label for="school-requests">My Requests</label>
+
+                <div class="module-panels">
+                  <section class="module-panel module-create">
+                    <div class="module-copy">
+                      <span class="module-label">Request creation</span>
+                      <h4>Food items, quantities and delivery time</h4>
+                      <p>
+                        Schools can build a delivery request by selecting food items, entering quantities, choosing the
+                        requested delivery time, and adding special notes for the administrator.
+                      </p>
+                    </div>
+
+                    <div class="image-placeholder dashboard-screenshot" data-image="assets/school-create-request.png">
+                      <img src="assets/school-create-request.png" alt="School create delivery request form" />
+                      <div><span>School Create Request Screenshot</span><small>assets/school-create-request.png</small>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="module-panel module-requests">
+                    <div class="module-copy">
+                      <span class="module-label">Request tracking</span>
+                      <h4>Submitted requests and delivery status</h4>
+                      <p>
+                        The school can follow the delivery workflow by viewing submitted requests, food details,
+                        requested times and current statuses such as requested, assigned, in progress or completed.
+                      </p>
+                    </div>
+
+                    <div class="image-placeholder dashboard-screenshot" data-image="assets/school-my-requests.png">
+                      <img src="assets/school-my-requests.png" alt="School delivery request tracking dashboard" />
+                      <div><span>School My Requests Screenshot</span><small>assets/school-my-requests.png</small></div>
+                    </div>
+                  </section>
+                </div>
+              </div>
             </div>
           </article>
 
           <article class="role-panel" id="driver-panel">
             <div class="role-copy">
               <p class="panel-kicker">Driver Dashboard</p>
-              <h3>Mobile workflow for monitored transportation</h3>
+              <h3>Mobile workspace for monitored transportation</h3>
               <ul class="check-list">
                 <li>View assigned deliveries</li>
                 <li>Start and complete a delivery</li>
@@ -300,9 +354,11 @@
                 <li>View live temperature, humidity, tilt and alerts</li>
               </ul>
             </div>
-            <div class="image-placeholder" data-image="assets/driver-dashboard.png">
-              <img src="assets/driver-dashboard.png" alt="Driver dashboard screenshot" />
-              <div><span>Driver Dashboard Screenshot</span><small>assets/driver-dashboard.png</small></div>
+
+            <div class="role-phone-showcase" aria-label="Driver mobile dashboard screenshot">
+              <div class="phone-frame screenshot-phone driver-tab-phone">
+                <img src="assets/driver-dashboard.png" alt="Driver mobile dashboard with active delivery monitoring" />
+              </div>
             </div>
           </article>
         </div>
@@ -321,32 +377,51 @@
         </div>
 
         <div class="monitoring-grid">
-          <article class="monitor-card reveal"><span>🌡️</span>
+          <article class="monitor-card reveal" data-monitor="temperature">
+            <span>🌡️</span>
             <h3>Temperature</h3>
             <p>Tracks box temperature and detects high-temperature situations.</p>
           </article>
-          <article class="monitor-card reveal"><span>💧</span>
+
+          <article class="monitor-card reveal" data-monitor="humidity">
+            <span>💧</span>
             <h3>Humidity</h3>
             <p>Monitors humidity to protect sensitive food during transport.</p>
           </article>
-          <article class="monitor-card reveal"><span>📦</span>
+
+          <article class="monitor-card reveal" data-monitor="tilt">
+            <span>📦</span>
             <h3>Tilt</h3>
             <p>Detects unstable handling or box movement using the KY-017 tilt module.</p>
           </article>
-          <article class="monitor-card reveal"><span>📍</span>
+
+          <article class="monitor-card reveal" data-monitor="gps">
+            <span>📍</span>
             <h3>GPS</h3>
             <p>Receives driver location from the phone browser during the active delivery.</p>
           </article>
-          <article class="monitor-card reveal"><span>⚠️</span>
+
+          <article class="monitor-card reveal" data-monitor="alerts">
+            <span>⚠️</span>
             <h3>Alerts</h3>
             <p>Shows condition alerts when temperature, humidity or tilt becomes problematic.</p>
           </article>
         </div>
 
         <div class="wide-visual reveal">
-          <div class="image-placeholder" data-image="assets/live-monitoring.png">
+          <div class="image-placeholder monitoring-preview" data-image="assets/live-monitoring.png">
             <img src="assets/live-monitoring.png" alt="Live monitoring dashboard screenshot" />
-            <div><span>Live Monitoring Screenshot</span><small>assets/live-monitoring.png</small></div>
+
+            <span class="monitor-highlight highlight-temperature"></span>
+            <span class="monitor-highlight highlight-humidity"></span>
+            <span class="monitor-highlight highlight-tilt"></span>
+            <span class="monitor-highlight highlight-gps"></span>
+            <span class="monitor-highlight highlight-alerts"></span>
+
+            <div>
+              <span>Live Monitoring Screenshot</span>
+              <small>assets/live-monitoring.png</small>
+            </div>
           </div>
         </div>
       </div>
@@ -395,54 +470,6 @@
       </div>
     </section>
 
-    <section class="section-padding section-muted" id="gps">
-      <div class="container gps-grid">
-        <div class="phone-mockup reveal" aria-label="Driver mobile dashboard screenshot">
-          <div class="phone-frame screenshot-phone">
-            <img src="assets/driver-dashboard.png" alt="Driver mobile dashboard with GPS tracking active" />
-          </div>
-        </div>
-
-        <div class="gps-copy reveal">
-          <p class="eyebrow">Phone GPS Tracking</p>
-          <h2>The driver phone becomes the GPS device</h2>
-          <p>
-            The driver panel is designed as a mobile workspace for managing assigned deliveries.
-            From this interface, the driver can see the current delivery status, start an assigned
-            delivery, follow the live monitoring state, and complete the delivery once the transport
-            is finished.
-          </p>
-          <div class="mini-flow">
-            <span>Phone Browser</span>
-            <span>GPS Permission</span>
-            <span>Coordinates</span>
-            <span>Backend</span>
-            <span>Live Dashboard</span>
-          </div>
-          </p>
-        </div>
-      </div>
-
-      <div class="container wide-visual reveal">
-        <div class="container gps-proof reveal">
-          <div class="gps-proof-card">
-            <div class="gps-proof-copy">
-              <p class="panel-kicker">Location permission</p>
-              <h3>Browser GPS access during the demo</h3>
-              <p>
-                The driver phone asks for location permission when the delivery starts.
-                During local testing, the Cloudflare Tunnel HTTPS URL allows the browser
-                to use precise location tracking.
-              </p>
-            </div>
-
-            <div class="gps-proof-image">
-              <img src="assets/phone-gps.png" alt="Phone browser location permission popup" />
-            </div>
-          </div>
-        </div>
-    </section>
-
     <section class="section-padding" id="demo">
       <div class="container">
         <div class="section-heading reveal">
@@ -467,31 +494,7 @@
       </div>
     </section>
 
-    <section class="section-padding section-muted" id="stack">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Technology Stack</p>
-          <h2>Simple, deployable and connected</h2>
-          <p>
-            The project combines web development, embedded IoT, backend APIs, local storage, machine learning and
-            deployment tools.
-          </p>
-        </div>
 
-        <div class="stack-grid reveal">
-          <span>React</span>
-          <span>Flask</span>
-          <span>Python</span>
-          <span>SQLite</span>
-          <span>Raspberry Pi 5</span>
-          <span>DHT11</span>
-          <span>KY-017 Tilt Switch</span>
-          <span>scikit-learn</span>
-          <span>Cloudflare Tunnel</span>
-          <span>GitHub Pages</span>
-        </div>
-      </div>
-    </section>
 
     <section class="section-padding" id="repos">
       <div class="container">
@@ -529,7 +532,9 @@
             <span class="repo-icon">🌐</span>
             <h3>GitHub Pages Website</h3>
             <p>Static showcase website for presenting the project structure, demo flow, components and future work.</p>
-            <a class="btn btn-secondary" href="#top">To be added</a>
+            <a class="btn btn-primary"
+              href="https://github.com/UniSalento-IDALab-IoTCourse-2024-2025/wot-project-presentation-YassineBH26"
+              target="_blank" rel="noreferrer">Open Website Repo</a>
           </article>
         </div>
       </div>
