@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Raqeb Food is an IoT and AI system for intelligent school food delivery monitoring." />
+  <title>Raqeb Food | IoT Food Delivery Monitoring</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header" id="top">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="#top" class="brand" aria-label="Raqeb Food home">
+        <span class="brand-mark">RF</span>
+        <span class="brand-text">
+          <strong>Raqeb Food</strong>
+          <small>راقب فود</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#roles">Dashboards</a>
+        <a href="#ai">AI</a>
+        <a href="#demo">Demo Flow</a>
+        <a href="#repos">Repositories</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-padding">
+      <div class="hero-bg-orb orb-one"></div>
+      <div class="hero-bg-orb orb-two"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">University of Salento · Internet of Things Exam Project</p>
+          <h1>
+            Raqeb Food
+            <span lang="ar" dir="rtl">راقب فود</span>
+          </h1>
+          <p class="tagline">IoT and AI system for intelligent school food delivery monitoring</p>
+          <p class="hero-description">
+            A Raspberry Pi and React-based system that monitors food delivery conditions, tracks driver GPS from the
+            phone browser, and supports administrators with AI-assisted driver recommendation.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary"
+              href="https://github.com/UniSalento-IDALab-IoTCourse-2024-2025/wot-project-part1-YassineBH26"
+              target="_blank" rel="noreferrer">View Backend Repository</a>
+            <a class="btn btn-secondary"
+              href="https://github.com/UniSalento-IDALab-IoTCourse-2024-2025/wot-project-part2-YassineBH26"
+              target="_blank" rel="noreferrer">View Frontend Repository</a>
+            <a class="btn btn-ghost" href="#overview">Explore Project</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Raqeb Food system preview">
+          <div class="dashboard-card floating-card">
+            <div class="dashboard-topbar">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="dashboard-body">
+              <div class="metric-card temperature">
+                <span class="icon">🌡️</span>
+                <div>
+                  <small>Temperature</small>
+                  <strong>24.8°C</strong>
+                </div>
+              </div>
+              <div class="metric-card humidity">
+                <span class="icon">💧</span>
+                <div>
+                  <small>Humidity</small>
+                  <strong>52%</strong>
+                </div>
+              </div>
+              <div class="metric-card gps">
+                <span class="icon">📍</span>
+                <div>
+                  <small>Phone GPS</small>
+                  <strong>Live</strong>
+                </div>
+              </div>
+              <div class="metric-card ai-score">
+                <span class="icon">🤖</span>
+                <div>
+                  <small>AI Risk</small>
+                  <strong>Low</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-line" aria-hidden="true">
+            <span class="pin start">School</span>
+            <span class="pulse-dot"></span>
+            <span class="pin end">Driver</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-strip" aria-label="Monitoring components">
+      <div class="container stats-grid">
+        <div>
+          <strong>Temperature & Humidity</strong>
+          <span>measured with DHT11</span>
+        </div>
+        <div>
+          <strong>Tilt Detection</strong>
+          <span>using KY-017 module</span>
+        </div>
+        <div>
+          <strong>GPS Tracking</strong>
+          <span>from driver phone browser</span>
+        </div>
+        <div>
+          <strong>Edge Backend</strong>
+          <span>powered by Raspberry Pi 5</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding" id="overview">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Project Overview</p>
+          <h2>From simple delivery to monitored, traceable transportation</h2>
+          <p>
+            School meal transportation needs more than basic logistics. Raqeb Food combines IoT sensors, GPS tracking,
+            role-based dashboards, delivery workflow management and AI recommendation to make each delivery more visible
+            and controlled.
+          </p>
+        </div>
+
+        <div class="problem-solution reveal">
+          <article>
+            <span class="article-label">Problem</span>
+            <h3>Condition loss can happen silently</h3>
+            <p>
+              Food deliveries for schools can be affected by temperature, humidity, unstable handling or missing
+              traceability. Without monitoring, problems may only be discovered after the delivery is complete.
+            </p>
+          </article>
+          <article>
+            <span class="article-label">Solution</span>
+            <h3>A connected delivery workflow</h3>
+            <p>
+              Raqeb Food links school requests, admin assignment, driver workflow, live sensor monitoring and delivery
+              reports inside one prototype system designed for real-world IoT evaluation.
+            </p>
+          </article>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <span class="feature-icon">🌡️</span>
+            <h3>Real-time Monitoring</h3>
+            <p>Temperature, humidity and tilt data are collected from the delivery box through the Raspberry Pi backend.
+            </p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon">📱</span>
+            <h3>Driver Phone GPS</h3>
+            <p>The driver browser sends live coordinates using the Geolocation API after delivery start.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon">🧠</span>
+            <h3>AI Recommendation</h3>
+            <p>A Decision Tree predicts delivery-condition risk and helps rank available drivers for the request.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon">📊</span>
+            <h3>Delivery Reports</h3>
+            <p>Important monitoring events are saved in the database and can be reviewed after completion.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding section-muted" id="architecture">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">System Architecture</p>
+          <h2>A full-stack IoT prototype built around the delivery lifecycle</h2>
+          <p>
+            The system connects a React dashboard, a Flask API running on Raspberry Pi, SQLite storage, physical
+            sensors, phone GPS and an AI module for recommendation.
+          </p>
+        </div>
+
+        <div class="architecture-layout reveal">
+          <div class="architecture-diagram" role="img"
+            aria-label="Architecture diagram showing React dashboard, Flask backend, SQLite database, sensors, GPS and AI module">
+            <div class="arch-node frontend">React Dashboard<br><small>Admin · School · Driver</small></div>
+            <div class="arch-arrow">↔</div>
+            <div class="arch-node backend">Flask Backend<br><small>Raspberry Pi 5</small></div>
+            <div class="arch-branches">
+              <div class="arch-node database">SQLite<br><small>requests · deliveries · records</small></div>
+              <div class="arch-node sensor">DHT11<br><small>temperature · humidity</small></div>
+              <div class="arch-node sensor">KY-017 Tilt Switch<br><small>box instability</small></div>
+              <div class="arch-node gps-node">Phone GPS<br><small>browser geolocation</small></div>
+              <div class="arch-node ai-node">AI Module<br><small>risk · score · ranking</small></div>
+            </div>
+          </div>
+
+          <div class="architecture-summary-card">
+            <p class="panel-kicker">System logic</p>
+            <h3>How the prototype works</h3>
+            <p>
+              The React dashboard communicates with the Flask backend running on the Raspberry Pi. The backend receives
+              sensor data, receives phone GPS coordinates, stores meaningful monitoring records in SQLite, and uses the
+              AI module to support driver assignment.
+            </p>
+            <ul class="check-list">
+              <li>React handles Admin, School and Driver interfaces</li>
+              <li>Flask exposes REST APIs and monitoring logic</li>
+              <li>DHT11, KY-017 and phone GPS provide delivery data</li>
+              <li>SQLite stores requests, deliveries and reports</li>
+              <li>AI ranks drivers by delivery-condition risk</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding" id="roles">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Role-based Dashboards</p>
+          <h2>Three interfaces, one connected workflow</h2>
+          <p>
+            Each user role has a focused dashboard: the school creates requests, the administrator assigns and monitors
+            deliveries, and the driver executes the delivery from the phone.
+          </p>
+        </div>
+
+        <div class="role-tabs reveal" aria-label="Dashboard role selector">
+          <button class="role-tab active" data-role="admin">Admin</button>
+          <button class="role-tab" data-role="school">School</button>
+          <button class="role-tab" data-role="driver">Driver</button>
+        </div>
+
+        <div class="role-panels reveal">
+          <article class="role-panel active" id="admin-panel">
+            <div class="role-copy">
+              <p class="panel-kicker">Admin Dashboard</p>
+              <h3>Control center for requests and active deliveries</h3>
+              <ul class="check-list">
+                <li>Manage school delivery requests</li>
+                <li>Assign available drivers</li>
+                <li>Use AI recommendation and view reasons</li>
+                <li>Monitor active deliveries and live conditions</li>
+              </ul>
+            </div>
+            <div class="image-placeholder" data-image="assets/admin-dashboard.png">
+              <img src="assets/admin-dashboard.png" alt="Admin dashboard screenshot" />
+              <div><span>Admin Dashboard Screenshot</span><small>assets/admin-dashboard.png</small></div>
+            </div>
+          </article>
+
+          <article class="role-panel" id="school-panel">
+            <div class="role-copy">
+              <p class="panel-kicker">School Dashboard</p>
+              <h3>A simple request interface for school meal delivery</h3>
+              <ul class="check-list">
+                <li>Create delivery requests</li>
+                <li>Select food items and quantities</li>
+                <li>Add requested delivery time and notes</li>
+                <li>View request status updates</li>
+              </ul>
+            </div>
+            <div class="image-placeholder" data-image="assets/school-dashboard.png">
+              <img src="assets/school-dashboard.png" alt="School dashboard screenshot" />
+              <div><span>School Dashboard Screenshot</span><small>assets/school-dashboard.png</small></div>
+            </div>
+          </article>
+
+          <article class="role-panel" id="driver-panel">
+            <div class="role-copy">
+              <p class="panel-kicker">Driver Dashboard</p>
+              <h3>Mobile workflow for monitored transportation</h3>
+              <ul class="check-list">
+                <li>View assigned deliveries</li>
+                <li>Start and complete a delivery</li>
+                <li>Send GPS location from the phone browser</li>
+                <li>View live temperature, humidity, tilt and alerts</li>
+              </ul>
+            </div>
+            <div class="image-placeholder" data-image="assets/driver-dashboard.png">
+              <img src="assets/driver-dashboard.png" alt="Driver dashboard screenshot" />
+              <div><span>Driver Dashboard Screenshot</span><small>assets/driver-dashboard.png</small></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding section-muted" id="monitoring">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Live Monitoring</p>
+          <h2>Important delivery events are tracked without flooding the database</h2>
+          <p>
+            The system monitors live data during active deliveries and stores meaningful event-based records such as
+            sensor changes, tilt events, alerts and delivery start records.
+          </p>
+        </div>
+
+        <div class="monitoring-grid">
+          <article class="monitor-card reveal"><span>🌡️</span>
+            <h3>Temperature</h3>
+            <p>Tracks box temperature and detects high-temperature situations.</p>
+          </article>
+          <article class="monitor-card reveal"><span>💧</span>
+            <h3>Humidity</h3>
+            <p>Monitors humidity to protect sensitive food during transport.</p>
+          </article>
+          <article class="monitor-card reveal"><span>📦</span>
+            <h3>Tilt</h3>
+            <p>Detects unstable handling or box movement using the KY-017 tilt module.</p>
+          </article>
+          <article class="monitor-card reveal"><span>📍</span>
+            <h3>GPS</h3>
+            <p>Receives driver location from the phone browser during the active delivery.</p>
+          </article>
+          <article class="monitor-card reveal"><span>⚠️</span>
+            <h3>Alerts</h3>
+            <p>Shows condition alerts when temperature, humidity or tilt becomes problematic.</p>
+          </article>
+        </div>
+
+        <div class="wide-visual reveal">
+          <div class="image-placeholder" data-image="assets/live-monitoring.png">
+            <img src="assets/live-monitoring.png" alt="Live monitoring dashboard screenshot" />
+            <div><span>Live Monitoring Screenshot</span><small>assets/live-monitoring.png</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding ai-section" id="ai">
+      <div class="container ai-grid">
+        <div class="ai-copy reveal">
+          <p class="eyebrow">AI Driver Recommendation</p>
+          <h2>Predicting delivery-condition risk, not judging driver quality</h2>
+          <p>
+            The AI module recommends the most suitable available driver for a request by combining request context, food
+            sensitivity and driver monitoring history. A Decision Tree Classifier predicts the delivery-condition risk
+            as low, medium or high. The backend then converts the prediction into a suitability score and ranks the
+            available drivers.
+          </p>
+          <div class="ai-note">
+            <strong>Important distinction:</strong> the model predicts delivery-condition risk for a specific request
+            context. It does not label a driver as good or bad in general.
+          </div>
+        </div>
+
+        <div class="ai-card reveal">
+          <div class="ai-card-header">
+            <span>Decision Tree Classifier</span>
+            <strong>Risk: Low · Medium · High</strong>
+          </div>
+          <div class="ai-flow" aria-label="AI recommendation flow">
+            <span>Prototype Dataset</span>
+            <span>Training</span>
+            <span>Saved Model</span>
+            <span>New Request</span>
+            <span>Driver Profiles</span>
+            <span>Risk Prediction</span>
+            <span>Score & Ranking</span>
+            <span>Recommended Driver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container wide-visual reveal">
+        <div class="image-placeholder" data-image="assets/ai-recommendation.png">
+          <img src="assets/ai-recommendation.png" alt="AI recommendation screenshot" />
+          <div><span>AI Recommendation Screenshot</span><small>assets/ai-recommendation.png</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding section-muted" id="gps">
+      <div class="container gps-grid">
+        <div class="phone-mockup reveal" aria-label="Driver mobile dashboard screenshot">
+          <div class="phone-frame screenshot-phone">
+            <img src="assets/driver-dashboard.png" alt="Driver mobile dashboard with GPS tracking active" />
+          </div>
+        </div>
+
+        <div class="gps-copy reveal">
+          <p class="eyebrow">Phone GPS Tracking</p>
+          <h2>The driver phone becomes the GPS device</h2>
+          <p>
+            The driver panel is designed as a mobile workspace for managing assigned deliveries.
+            From this interface, the driver can see the current delivery status, start an assigned
+            delivery, follow the live monitoring state, and complete the delivery once the transport
+            is finished.
+          </p>
+          <div class="mini-flow">
+            <span>Phone Browser</span>
+            <span>GPS Permission</span>
+            <span>Coordinates</span>
+            <span>Backend</span>
+            <span>Live Dashboard</span>
+          </div>
+          </p>
+        </div>
+      </div>
+
+      <div class="container wide-visual reveal">
+        <div class="container gps-proof reveal">
+          <div class="gps-proof-card">
+            <div class="gps-proof-copy">
+              <p class="panel-kicker">Location permission</p>
+              <h3>Browser GPS access during the demo</h3>
+              <p>
+                The driver phone asks for location permission when the delivery starts.
+                During local testing, the Cloudflare Tunnel HTTPS URL allows the browser
+                to use precise location tracking.
+              </p>
+            </div>
+
+            <div class="gps-proof-image">
+              <img src="assets/phone-gps.png" alt="Phone browser location permission popup" />
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="demo">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Demo Flow</p>
+          <h2>A complete monitored delivery scenario</h2>
+          <p>
+            The prototype demonstration follows the full path from a school request to AI-assisted assignment, live
+            monitoring and final reporting.
+          </p>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="timeline-step"><strong>01</strong><span>School creates request</span></div>
+          <div class="timeline-step"><strong>02</strong><span>Admin asks AI recommendation</span></div>
+          <div class="timeline-step"><strong>03</strong><span>Admin assigns driver</span></div>
+          <div class="timeline-step"><strong>04</strong><span>Driver opens phone dashboard</span></div>
+          <div class="timeline-step"><strong>05</strong><span>Driver starts delivery</span></div>
+          <div class="timeline-step"><strong>06</strong><span>GPS and sensors update live</span></div>
+          <div class="timeline-step"><strong>07</strong><span>Driver completes delivery</span></div>
+          <div class="timeline-step"><strong>08</strong><span>Report is generated</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding section-muted" id="stack">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Technology Stack</p>
+          <h2>Simple, deployable and connected</h2>
+          <p>
+            The project combines web development, embedded IoT, backend APIs, local storage, machine learning and
+            deployment tools.
+          </p>
+        </div>
+
+        <div class="stack-grid reveal">
+          <span>React</span>
+          <span>Flask</span>
+          <span>Python</span>
+          <span>SQLite</span>
+          <span>Raspberry Pi 5</span>
+          <span>DHT11</span>
+          <span>KY-017 Tilt Switch</span>
+          <span>scikit-learn</span>
+          <span>Cloudflare Tunnel</span>
+          <span>GitHub Pages</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding" id="repos">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Components & Repositories</p>
+          <h2>Two main project parts plus the showcase website</h2>
+          <p>
+            The backend contains the Raspberry Pi, Flask, IoT, database and AI logic. The frontend contains the React
+            dashboards for the three roles.
+          </p>
+        </div>
+
+        <div class="repo-grid">
+          <article class="repo-card reveal">
+            <span class="repo-icon">🧩</span>
+            <h3>Backend / IoT / AI</h3>
+            <p>Flask API, Raspberry Pi monitoring, SQLite database, authentication, delivery workflow and AI
+              recommendation.</p>
+            <a class="btn btn-primary"
+              href="https://github.com/UniSalento-IDALab-IoTCourse-2024-2025/wot-project-part1-YassineBH26"
+              target="_blank" rel="noreferrer">Open Backend Repo</a>
+          </article>
+
+          <article class="repo-card reveal">
+            <span class="repo-icon">🖥️</span>
+            <h3>Frontend Dashboard</h3>
+            <p>React role-based interface for admins, schools and drivers, including live monitoring and GPS workflow.
+            </p>
+            <a class="btn btn-primary"
+              href="https://github.com/UniSalento-IDALab-IoTCourse-2024-2025/wot-project-part2-YassineBH26"
+              target="_blank" rel="noreferrer">Open Frontend Repo</a>
+          </article>
+
+          <article class="repo-card reveal">
+            <span class="repo-icon">🌐</span>
+            <h3>GitHub Pages Website</h3>
+            <p>Static showcase website for presenting the project structure, demo flow, components and future work.</p>
+            <a class="btn btn-secondary" href="#top">To be added</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding section-muted" id="future">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Limitations & Future Work</p>
+          <h2>A prototype designed to grow into a stronger real deployment</h2>
+        </div>
+
+        <div class="future-grid">
+          <article class="future-card reveal">
+            <h3>Prototype Dataset</h3>
+            <p>The current AI dataset is synthetic/prototype-based and can later be replaced by real deployment data.
+            </p>
+          </article>
+          <article class="future-card reveal">
+            <h3>Production GPS</h3>
+            <p>A production deployment should use HTTPS hosting for reliable browser-based GPS tracking.</p>
+          </article>
+          <article class="future-card reveal">
+            <h3>Real-time Map</h3>
+            <p>A live map could be added to visualize the delivery route and current driver position.</p>
+          </article>
+          <article class="future-card reveal">
+            <h3>More Sensors</h3>
+            <p>Additional sensors could improve monitoring accuracy and food safety analysis.</p>
+          </article>
+          <article class="future-card reveal">
+            <h3>Advanced AI</h3>
+            <p>Future models could use more real examples and more advanced recommendation strategies.</p>
+          </article>
+          <article class="future-card reveal">
+            <h3>Route History</h3>
+            <p>Route tracking could be improved with richer historical GPS traces and reports.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#top" class="brand footer-brand">
+          <span class="brand-mark">RF</span>
+          <span class="brand-text">
+            <strong>Raqeb Food</strong>
+            <small>راقب فود</small>
+          </span>
+        </a>
+        <p>IoT and AI system for intelligent school food delivery monitoring.</p>
+      </div>
+      <div>
+        <h3>Project</h3>
+        <p>University of Salento · Internet of Things Exam Project</p>
+      </div>
+      <div>
+        <h3>Author</h3>
+        <p>Yassine Ben Hamadi</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
